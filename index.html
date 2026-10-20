@@ -1,0 +1,709 @@
+<!doctype html> <<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAKRIZ | Bahan Lokal, Rasa Global</title>
+    <style>
+      :root {
+        --hijau: #234b35;
+        --daun: #64865a;
+        --krem: #fbf7ed;
+        --cokelat: #d98b48;
+        --putih: #fffdf8;
+      }
+      * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--krem);
+        color: #253529;
+        line-height: 1.6;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--putih);
+        padding: 16px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 12px #0000000b;
+      }
+      .logo {
+        font-size: 27px;
+        font-weight: 900;
+        color: var(--hijau);
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--hijau);
+        font-weight: bold;
+      }
+      .links {
+        display: flex;
+        gap: 22px;
+      }
+      .hero {
+        padding: 75px 8%;
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 35px;
+      }
+      .hero-text {
+        max-width: 580px;
+      }
+      .tag {
+        display: inline-block;
+        padding: 7px 14px;
+        border-radius: 30px;
+        background: #e4ebdb;
+        color: var(--hijau);
+        font-weight: bold;
+      }
+      h1 {
+        font-size: clamp(45px, 7vw, 76px);
+        line-height: 1.05;
+        color: var(--hijau);
+        margin: 20px 0;
+      }
+      h1 span {
+        color: var(--cokelat);
+        font-family: Georgia, serif;
+      }
+      .hero p {
+        color: #657063;
+        font-size: 18px;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--hijau);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 8px 5px 0 0;
+      }
+      .btn:hover {
+        background: var(--daun);
+      }
+      .cookie-art {
+        width: 260px;
+        height: 260px;
+        min-width: 220px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #eac58b, #c58b4b);
+        border: 10px solid #f4d9a7;
+        box-shadow: 0 20px 40px #72502b25;
+        display: grid;
+        place-items: center;
+        font-size: 100px;
+      }
+      .banner {
+        padding: 15px;
+        text-align: center;
+        color: white;
+        background: var(--hijau);
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+      section {
+        padding: 70px 8%;
+      }
+      .kicker {
+        color: var(--daun);
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+      h2 {
+        color: var(--hijau);
+        font-size: clamp(30px, 4vw, 45px);
+        line-height: 1.15;
+        margin: 12px 0;
+      }
+      .intro {
+        max-width: 680px;
+        color: #657063;
+      }
+      .profil-grid,
+      .produk-grid,
+      .charity-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: center;
+      }
+      .profil-card {
+        padding: 35px;
+        border-radius: 25px;
+        background: #e8e8d7;
+        min-height: 260px;
+      }
+      .profil-card h3 {
+        font-size: 28px;
+        color: var(--hijau);
+      }
+      .nilai-grid,
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 25px;
+      }
+      .card {
+        background: var(--putih);
+        padding: 23px;
+        border-radius: 18px;
+        border: 1px solid #e9e2d4;
+      }
+      .card h3 {
+        color: var(--hijau);
+        margin-bottom: 8px;
+      }
+      .card p {
+        color: #657063;
+        font-size: 14px;
+      }
+      .icon {
+        font-size: 30px;
+      }
+      #tambahan {
+        background: #f0eadc;
+      }
+      .bahan {
+        display: flex;
+        gap: 15px;
+        padding: 15px 0;
+        border-bottom: 1px solid #ddd4c4;
+      }
+      .nomor {
+        flex: 0 0 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--hijau);
+        color: white;
+        display: grid;
+        place-items: center;
+        font-weight: bold;
+      }
+      .bahan h3 {
+        color: var(--hijau);
+        margin: 0;
+      }
+      .bahan p {
+        margin: 4px 0;
+        color: #657063;
+      }
+      .catatan {
+        background: #fff9ed;
+        padding: 13px;
+        border-radius: 10px;
+        color: #756d5e;
+        font-size: 13px;
+      }
+      #charity {
+        background: var(--hijau);
+        color: white;
+      }
+      #charity h2 {
+        color: white;
+      }
+      #charity .kicker {
+        color: #c5d8a9;
+      }
+      #charity .intro {
+        color: #d4ddce;
+      }
+      .charity-card {
+        padding: 28px;
+        background: #2d5a3e;
+        border: 1px solid #64816b;
+        border-radius: 22px;
+      }
+      .charity-card h3 {
+        font-size: 24px;
+      }
+      .charity-card p {
+        color: #e0e9dc;
+      }
+      form {
+        display: grid;
+        gap: 14px;
+      }
+      label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        border: 1px solid #b8c6b4;
+        border-radius: 9px;
+        font: inherit;
+      }
+      textarea {
+        min-height: 90px;
+      }
+      button {
+        cursor: pointer;
+        border: none;
+        font-size: 15px;
+      }
+      #pesan {
+        font-size: 14px;
+      }
+      footer {
+        background: #173824;
+        color: white;
+        padding: 35px 8%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      footer p {
+        color: #c4d2bf;
+      }
+      footer a {
+        color: white;
+        margin-right: 12px;
+      }
+      @media (max-width: 750px) {
+        nav {
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .links {
+          width: 100%;
+          gap: 15px;
+          flex-wrap: wrap;
+          font-size: 13px;
+        }
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          padding: 55px 7%;
+        }
+        .cookie-art {
+          width: 220px;
+          height: 220px;
+        }
+        .profil-grid,
+        .produk-grid,
+        .charity-grid {
+          grid-template-columns: 1fr;
+        }
+        .nilai-grid,
+        .menu-grid {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 55px 7%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#beranda" class="logo">🌿 PAKRIZ</a>
+      <div class="links">
+        <a href="#profil">Profil</a>
+        <a href="#tambahan">Menu Tambahan</a>
+        <a href="#charity">Social Charity</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="beranda">
+      <div class="hero-text">
+        <span class="tag">🍃 Inovasi Pangan Lokal</span>
+        <h1>Bahan Lokal,<br /><span>Rasa Global.</span></h1>
+        <p>
+          Kenalan dengan PAKRIZ, inovasi kukis manis berbahan pakis yang
+          mengangkat potensi lokal Trawas, Mojokerto, menjadi kreasi camilan
+          yang unik.
+        </p>
+        <a href="#profil" class="btn">Kenali PAKRIZ ↗</a>
+        <a href="#charity" class="btn">Ayo Berbagi</a>
+      </div>
+      <div align="center" aria-label="Ilustrasi kukis persegi hijau kekuningan">
+        <svg
+          width="260"
+          height="260"
+          viewBox="0 0 260 260"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="35"
+            y="35"
+            width="190"
+            height="190"
+            rx="18"
+            fill="#c5d982"
+            stroke="#829b42"
+            stroke-width="8"
+          />
+
+          <g fill="#587c36">
+            <circle cx="70" cy="70" r="9" />
+            <circle cx="120" cy="60" r="7" />
+            <circle cx="175" cy="78" r="10" />
+            <circle cx="90" cy="115" r="8" />
+            <circle cx="145" cy="105" r="10" />
+            <circle cx="195" cy="125" r="7" />
+            <circle cx="60" cy="155" r="8" />
+            <circle cx="110" cy="160" r="10" />
+            <circle cx="170" cy="150" r="8" />
+            <circle cx="85" cy="195" r="7" />
+            <circle cx="145" cy="195" r="9" />
+            <circle cx="195" cy="185" r="7" />
+          </g>
+        </svg>
+      </div>
+    </header>
+
+    <div class="banner">PAKRIZ • BAHAN LOKAL • RASA GLOBAL</div>
+
+    <section id="profil">
+      <div class="profil-grid">
+        <div>
+          <div class="kicker">01 — Profil</div>
+          <h2>Berangkat dari alam, tumbuh jadi inovasi.</h2>
+          <p class="intro">
+            PAKRIZ merupakan konsep kukis manis berbahan pakis yang mengangkat
+            potensi pangan lokal Trawas, Kabupaten Mojokerto.
+          </p>
+          <p class="intro">
+            Melalui kreativitas dalam pengolahan bahan lokal, PAKRIZ berupaya
+            menghadirkan produk kuliner yang memiliki identitas daerah dan
+            peluang ekonomi.
+          </p>
+        </div>
+        <div class="profil-card">
+          <div class="icon">🌿🟩</div>
+          <h3>Satu gigitan, satu cerita tentang potensi lokal.</h3>
+          <p>
+            Inovasi kuliner dengan semangat lokal dan kreativitas generasi muda.
+          </p>
+        </div>
+      </div>
+
+      <div class="nilai-grid">
+        <div class="card">
+          <div class="icon">🌿</div>
+          <h3>Lokal</h3>
+          <p>Terinspirasi dari potensi alam Trawas, Mojokerto.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💡</div>
+          <h3>Kreatif</h3>
+          <p>Mengembangkan pakis sebagai bahan inovasi kukis manis.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🤝</div>
+          <h3>Berdampak</h3>
+          <p>Membuka peluang kolaborasi dan kepedulian sosial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tambahan">
+      <div class="kicker">02 — Menu Tambahan</div>
+      <h2>Kenali bahan dan keunggulannya.</h2>
+      <p class="intro">
+        Setiap bahan memiliki fungsi untuk membentuk karakter kukis PAKRIZ.
+      </p>
+
+      <div class="produk-grid">
+        <div class="card">
+          <div style="text-align: center">
+            <svg
+              width="200"
+              height="200"
+              viewBox="0 0 260 260"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="35"
+                y="35"
+                width="190"
+                height="190"
+                rx="18"
+                fill="#c5d982"
+                stroke="#829b42"
+                stroke-width="8"
+              />
+
+              <g fill="#587c36">
+                <circle cx="70" cy="70" r="9" />
+                <circle cx="120" cy="60" r="7" />
+                <circle cx="175" cy="78" r="10" />
+                <circle cx="90" cy="115" r="8" />
+                <circle cx="145" cy="105" r="10" />
+                <circle cx="195" cy="125" r="7" />
+                <circle cx="60" cy="155" r="8" />
+                <circle cx="110" cy="160" r="10" />
+                <circle cx="170" cy="150" r="8" />
+                <circle cx="85" cy="195" r="7" />
+                <circle cx="145" cy="195" r="9" />
+                <circle cx="195" cy="185" r="7" />
+              </g>
+            </svg>
+          </div>
+          <h3>PAKRIZ Cookies</h3>
+          <p>
+            Kukis manis berbahan pakis dengan inspirasi potensi pangan lokal.
+          </p>
+          <span class="tag">Bahan Lokal, Rasa Global</span>
+        </div>
+        <div>
+          <div class="bahan">
+            <div class="nomor">1</div>
+            <div>
+              <h3>Pakis</h3>
+              <p>
+                Bahan inovasi utama yang mengangkat potensi pangan lokal.
+                Kandungan gizinya bergantung pada jenis pakis.
+              </p>
+            </div>
+          </div>
+          <div class="bahan">
+            <div class="nomor">2</div>
+            <div>
+              <h3>Tepung beras</h3>
+              <p>
+                Sumber karbohidrat yang membantu membentuk struktur kukis dan
+                secara alami bebas gluten.
+              </p>
+            </div>
+          </div>
+          <div class="bahan">
+            <div class="nomor">3</div>
+            <div>
+              <h3>Mentega</h3>
+              <p>
+                Memberikan aroma khas, rasa gurih, dan membantu membentuk
+                tekstur kukis.
+              </p>
+            </div>
+          </div>
+          <div class="bahan">
+            <div class="nomor">4</div>
+            <div>
+              <h3>Gula pasir</h3>
+              <p>
+                Memberikan rasa manis serta membantu pembentukan warna saat
+                dipanggang.
+              </p>
+            </div>
+          </div>
+          <div class="bahan">
+            <div class="nomor">5</div>
+            <div>
+              <h3>Garam</h3>
+              <p>Menyeimbangkan rasa manis dan memperkuat cita rasa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="catatan">
+        *Bahan yang kita gunakan sudah dipastikan gluten free dan aman untuk
+        dikonsumsi
+      </p>
+    </section>
+
+    <section id="charity">
+      <div class="kicker">03 — Social Charity</div>
+      <h2>Manisnya berbagi,<br />hangatnya peduli.</h2>
+      <p class="intro">
+        PAKRIZ ingin bertumbuh bersama lingkungan sekitar melalui gagasan
+        kegiatan sosial dan kolaborasi komunitas.
+      </p>
+
+      <div class="charity-grid">
+        <div class="charity-card">
+          <h3>💚 Rencana aksi kebaikan</h3>
+          <p>
+            Program yang dapat dikembangkan sesuai kebutuhan masyarakat dan
+            kemampuan tim.
+          </p>
+          <div class="bahan">
+            <div class="icon">🎁</div>
+            <div>
+              <h3 style="color: white">Berbagi camilan</h3>
+              <p>
+                Mengadakan kegiatan berbagi produk kepada komunitas yang
+                membutuhkan.
+              </p>
+            </div>
+          </div>
+          <div class="bahan">
+            <div class="icon">🌾</div>
+            <div>
+              <h3 style="color: white">Dukung usaha lokal</h3>
+              <p>Menjajaki kerja sama dengan pemasok dan pelaku usaha lokal.</p>
+            </div>
+          </div>
+          <div class="bahan">
+            <div class="icon">🫶</div>
+            <div>
+              <h3 style="color: white">Kolaborasi komunitas</h3>
+              <p>Mengajak masyarakat berpartisipasi dalam kegiatan sosial.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="charity-card">
+          <h3>✉️ Usulkan kolaborasi</h3>
+          <p>Isi formulir untuk menyiapkan pesan usulan kegiatan sosial.</p>
+          <form
+            action="mailto:pakriztrawas@gmail.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label
+              >Nama
+              <input
+                type="text"
+                name="Nama"
+                required
+                placeholder="Nama kamu atau komunitas"
+              />
+            </label>
+
+            <label
+              >Jenis kolaborasi
+              <select name="Jenis kolaborasi" required>
+                <option value="">Pilih jenis kegiatan</option>
+                <option>Berbagi camilan</option>
+                <option>Kegiatan komunitas</option>
+                <option>Dukungan usaha lokal</option>
+                <option>Ide lainnya</option>
+              </select>
+            </label>
+
+            <label
+              >Pesan
+              <textarea
+                name="Pesan"
+                required
+                placeholder="Tuliskan ide atau pesanmu..."
+              ></textarea>
+            </label>
+
+            <button type="submit" class="btn">Siapkan Pesan ↗</button>
+          </form>
+        </div>
+      </div>
+      <p style="font-size: 13px; color: #d4ddce">
+        *Program di atas merupakan gagasan yang dapat dikembangkan, bukan klaim
+        kegiatan yang telah terlaksana.
+      </p>
+    </section>
+
+    <section id="sosial">
+      <div class="kicker">Tetap Terhubung</div>
+      <h2>Ikuti perjalanan PAKRIZ.</h2>
+      <p class="intro">
+        Bagikan cerita, dukung inovasi lokal, dan ikuti perkembangan PAKRIZ
+        melalui kanal sosial resmi.
+      </p>
+      <div class="menu-grid">
+        <div class="card">
+          <div class="icon">📸</div>
+          <h3>Instagram</h3>
+          <p>
+            Sayangnya,PAKRIZ belum punya instagram nih follow instagram ownernya
+            aja yaa @fckinvnz dan @raffi_ramadhan.
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon">🤝</div>
+          <h3>Kitabisa</h3>
+          <p>
+            Kita juga bekerja sama dengan pihak yang sudah terverifikasi dalam
+            penyaluran donasi.
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon">💌</div>
+          <h3>Kolaborasi</h3>
+          <p>
+            Dalam setiap kemasan yang anda beli sudah terdapat donasi,namun jika
+            anda ingin berkolaborasi dalam berdonasi anda dapat mengisi formulir
+            diatas atau langsung kirim pesan ke instagram owner yaa.
+          </p>
+        </div>
+      </div>
+      <p class="catatan">follow ya gais heheee>_<.</p>
+    </section>
+
+    <footer>
+      <div>
+        <div class="logo" style="color: white">🌿 PAKRIZ</div>
+        <p>Bahan Lokal, Rasa Global.</p>
+        <small
+          >© <span id="tahun"></span> PAKRIZ. Dibuat dengan semangat
+          lokal.</small
+        >
+      </div>
+      <div>
+        <a href="#profil">Profil</a>
+        <a href="#tambahan">Menu Tambahan</a>
+        <a href="#charity">Social Charity</a>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("tahun").textContent = new Date().getFullYear();
+
+      document
+        .getElementById("charityForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nama = document.getElementById("nama").value.trim();
+          const jenis = document.getElementById("jenis").value;
+          const isi = document.getElementById("isi").value.trim();
+
+          const pesan =
+            "Halo tim PAKRIZ! Saya " +
+            nama +
+            ". Saya ingin mengusulkan kolaborasi: " +
+            jenis +
+            ". Pesan: " +
+            isi;
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard
+              .writeText(pesan)
+              .then(() => {
+                document.getElementById("pesan").textContent =
+                  "Pesan berhasil disalin! Kirim ke pakriz@gmail.com";
+              })
+              .catch(() => {
+                tampilkanPesan(pesan);
+              });
+          } else {
+            tampilkanPesan(pesan);
+          }
+
+          function tampilkanPesan(teks) {
+            document.getElementById("pesan").textContent =
+              "Salin pesan berikut: " + teks;
+          }
+        });
+    </script>
+  </body>
+</html>
